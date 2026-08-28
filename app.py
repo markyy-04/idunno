@@ -1,128 +1,281 @@
 import streamlit as st
 
-# Remember login
-if "logged_in" not in st.session_state:
-    st.session_state.logged_in = False
+# Remember which question we're on
+if "step" not in st.session_state:
+    st.session_state.step = 1
 
 
-# ==========================
-# LOGIN
-# ==========================
+# =========================
+# TITLE
+# =========================
 
-if not st.session_state.logged_in:
-
-    st.title("💊 PharmaKart")
-    st.write("Welcome to Medicare Pharmacy!")
-
-    st.header("Pharmacist Login")
-
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-
-    if st.button("Login"):
-
-        if username == "pharmacist" and password == "1234":
-            st.session_state.logged_in = True
-            st.rerun()
-
-        else:
-            st.error("Incorrect username or password.")
+st.title("💌 A Little Question")
 
 
-# ==========================
-# MAIN MENU
-# ==========================
+# =========================
+# STEP 1
+# =========================
 
-else:
+if st.session_state.step == 1:
 
-    st.title("💊 PharmaKart")
-    st.success("Login Successful!")
-    st.write("Welcome, Pharmacist!")
+    st.write("### Can I take you on a date? 💗")
 
-    st.header("Main Menu")
+    if st.button("Yes 💗"):
+        st.session_state.step = 2
+        st.rerun()
 
-    choice = st.selectbox(
-        "Choose a medicine:",
-        [
-            "Select a medicine",
-            "Paracetamol",
-            "Vitamin C",
-            "Atorvastatin",
-            "Amlodipine"
-        ]
-    )
-
-    if choice == "Paracetamol":
-
-        st.subheader("Paracetamol")
-
-        strength = st.selectbox(
-            "Choose Strength:",
-            ["325 mg - ₱4.50", "500 mg - ₱5.55"]
-        )
-
-        quantity = st.number_input(
-            "Enter quantity:",
-            min_value=1,
-            step=1
-        )
-
-        st.write("Selected:", strength)
-        st.write("Quantity:", quantity)
+    if st.button("No"):
+        st.session_state.step = 3
+        st.rerun()
 
 
-    elif choice == "Vitamin C":
+# =========================
+# NO → ARE YOU SURE?
+# =========================
 
-        st.subheader("Vitamin C")
+elif st.session_state.step == 3:
 
-        strength = st.selectbox(
-            "Choose Strength:",
-            ["500 mg - ₱2.25", "1000 mg - ₱7.50"]
-        )
+    st.write("### Are you sure? 🥺")
 
-        quantity = st.number_input(
-            "Enter quantity:",
-            min_value=1,
-            step=1
-        )
+    if st.button("Yes, I'm sure"):
+        st.write("Okay, I respect that. ❤️")
 
-        st.write("Selected:", strength)
-        st.write("Quantity:", quantity)
+    if st.button("No, let me think"):
+        st.session_state.step = 1
+        st.rerun()
 
 
-    elif choice == "Atorvastatin":
+# =========================
+# U SURE?
+# =========================
 
-        st.subheader("Atorvastatin")
+elif st.session_state.step == 2:
 
-        strength = st.selectbox(
-            "Choose Strength:",
-            ["20 mg - ₱17.25", "40 mg - ₱24.50"]
-        )
+    st.write("### U sure? 👀")
 
-        quantity = st.number_input(
-            "Enter quantity:",
-            min_value=1,
-            step=1
-        )
+    if st.button("Yes"):
+        st.session_state.step = 4
+        st.rerun()
 
-        st.write("Selected:", strength)
-        st.write("Quantity:", quantity)
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
 
 
-    elif choice == "Amlodipine":
+# =========================
+# REALLY SURE?
+# =========================
 
-        st.subheader("Amlodipine")
+elif st.session_state.step == 4:
 
-        strength = st.selectbox(
-            "Choose Strength:",
-            ["5 mg - ₱6.25", "10 mg - ₱9.50"]
-        )
+    st.write("### Really sure? 😳")
 
-        quantity = st.number_input(
-            "Enter quantity:",
-            min_value=1,
-            step=1
-        )
+    if st.button("Yes"):
+        st.session_state.step = 5
+        st.rerun()
 
-        st.write("Selected:", strength)
-        st.write("Quantity:", quantity)
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
+
+
+# =========================
+# SUPER DUPER SURE?
+# =========================
+
+elif st.session_state.step == 5:
+
+    st.write("### Super duper sure? 🥺")
+
+    if st.button("Yes"):
+        st.session_state.step = 6
+        st.rerun()
+
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
+
+
+# =========================
+# PRETTY PLEASE
+# =========================
+
+elif st.session_state.step == 6:
+
+    st.write("### Aww, pretty please? :<")
+
+    if st.button("Yes"):
+        st.session_state.step = 7
+        st.rerun()
+
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
+
+
+# =========================
+# CHANGE YOUR MIND
+# =========================
+
+elif st.session_state.step == 7:
+
+    st.write("### Can I change your mind? 🥺")
+
+    if st.button("Yes"):
+        st.session_state.step = 8
+        st.rerun()
+
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
+
+
+# =========================
+# TRICK
+# =========================
+
+elif st.session_state.step == 8:
+
+    st.write("### What if I do a trick? 👀")
+
+    if st.button("Okay!"):
+        st.session_state.step = 9
+        st.rerun()
+
+    if st.button("No"):
+        st.session_state.step = 1
+        st.rerun()
+
+
+# =========================
+# NUMBER TRICK
+# =========================
+
+elif st.session_state.step == 9:
+
+    st.write("## 🪄 MAGIC TRICK 🪄")
+
+    st.write("Think of a number. Done?")
+
+    if st.button("Yes!"):
+        st.session_state.step = 10
+        st.rerun()
+
+
+elif st.session_state.step == 10:
+
+    st.write("### Double it.")
+
+    if st.button("Okay!"):
+        st.session_state.step = 11
+        st.rerun()
+
+
+elif st.session_state.step == 11:
+
+    st.write("### Add 4 to that.")
+
+    if st.button("Okay!"):
+        st.session_state.step = 12
+        st.rerun()
+
+
+elif st.session_state.step == 12:
+
+    st.write("### Divide by 2.")
+
+    if st.button("Okay!"):
+        st.session_state.step = 13
+        st.rerun()
+
+
+elif st.session_state.step == 13:
+
+    st.write("### Now subtract your original number.")
+
+    if st.button("Okay!"):
+        st.session_state.step = 14
+        st.rerun()
+
+
+# =========================
+# MAGIC RESULT
+# =========================
+
+elif st.session_state.step == 14:
+
+    st.write("# IS IT 2?!? HAHAHAHA 😂")
+    st.write("## I KNEW IT! 🪄✨")
+
+    if st.button("Continue 💗"):
+        st.session_state.step = 15
+        st.rerun()
+
+
+# =========================
+# HARD WAY
+# =========================
+
+elif st.session_state.step == 15:
+
+    st.write("### So we're gonna do this the hard way then? 😭")
+
+    if st.button("Yes"):
+        st.session_state.step = 16
+        st.rerun()
+
+
+# =========================
+# FINAL QUESTION
+# =========================
+
+elif st.session_state.step == 16:
+
+    st.write("## Will you go out with me? 💗")
+
+    if st.button("YES 💗"):
+        st.session_state.step = 17
+        st.rerun()
+
+    if st.button("YESSS 😭"):
+        st.session_state.step = 17
+        st.rerun()
+
+    if st.button("YES! 🥹"):
+        st.session_state.step = 17
+        st.rerun()
+
+    if st.button("YES PLEASE"):
+        st.session_state.step = 17
+        st.rerun()
+
+    if st.button("OF COURSE!"):
+        st.session_state.step = 17
+        st.rerun()
+
+    if st.button("Maybe... 👀"):
+        st.session_state.step = 18
+        st.rerun()
+
+
+# =========================
+# YES
+# =========================
+
+elif st.session_state.step == 17:
+
+    st.balloons()
+
+    st.write("# YAYYYYY! 💗😭")
+    st.write("## IT'S A DATE!!! 🥳💗")
+
+
+# =========================
+# MAYBE
+# =========================
+
+elif st.session_state.step == 18:
+
+    st.write("# Maybe? 👀")
+    st.write("## It's a yes then? YAYYY! 💗😭")
+    st.write("### IT'S A DATE!!! 🥳💗")
