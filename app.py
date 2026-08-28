@@ -20,7 +20,7 @@ if st.session_state.step == 1:
     st.write("## Can I take you on a date? 💗")
 
     if st.button("Yes 💗"):
-        go_to(3)
+        go_to(18)
 
     elif st.button("No"):
         go_to(2)
