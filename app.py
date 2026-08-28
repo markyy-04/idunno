@@ -20,10 +20,10 @@ if st.session_state.step == 1:
     st.write("## Can I take you on a date? 💗")
 
     if st.button("Yes 💗"):
-        go_to(2)
+        go_to(3)
 
     elif st.button("No"):
-        go_to(3)
+        go_to(2)
 
 
 # 2
@@ -32,10 +32,10 @@ elif st.session_state.step == 2:
     st.write("## U sure? 👀")
 
     if st.button("Yes"):
-        go_to(4)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(4)
 
 
 # 3
@@ -56,10 +56,10 @@ elif st.session_state.step == 4:
     st.write("## Really sure? 😳")
 
     if st.button("Yes"):
-        go_to(5)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(5)
 
 
 # 5
@@ -68,10 +68,10 @@ elif st.session_state.step == 5:
     st.write("## Super duper sure? 🥺")
 
     if st.button("Yes"):
-        go_to(6)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(6)
 
 
 # 6
@@ -80,10 +80,10 @@ elif st.session_state.step == 6:
     st.write("## Aww, pretty please? :<")
 
     if st.button("Yes"):
-        go_to(7)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(7)
 
 
 # 7
@@ -92,10 +92,10 @@ elif st.session_state.step == 7:
     st.write("## Can I change your mind? 🥺")
 
     if st.button("Yes"):
-        go_to(8)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(8)
 
 
 # 8
@@ -104,10 +104,10 @@ elif st.session_state.step == 8:
     st.write("## What if I do a trick? 👀")
 
     if st.button("Okay!"):
-        go_to(9)
+        go_to(1)
 
     elif st.button("No"):
-        go_to(1)
+        go_to(9)
 
 
 # 9
