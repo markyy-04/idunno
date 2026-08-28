@@ -32,7 +32,7 @@ elif st.session_state.step == 2:
     st.write("## U sure? 👀")
 
     if st.button("Yes"):
-        go_to(4)
+        go_to(1)
 
     elif st.button("No"):
         go_to(1)
