@@ -92,7 +92,7 @@ elif st.session_state.step == 7:
     st.write("## Can I change your mind? 🥺")
 
     if st.button("Yes"):
-        go_to(😎
+        go_to(8)
 
     elif st.button("No"):
         go_to(1)
