@@ -20,7 +20,7 @@ if st.session_state.step == 1:
     st.write("## Can I take you on a date? 💗")
 
     if st.button("Yes 💗"):
-        go_to(18)
+        go_to(19)
 
     elif st.button("No"):
         go_to(2)
@@ -213,4 +213,10 @@ elif st.session_state.step == 18:
 
     st.write("# Maybe? 👀")
     st.write("## It's a yes then? YAYYY! 💗😭")
+    st.write("### IT'S A DATE!!! 🥳💗")
+
+elif st.session_state.step == 19:
+
+    st.write("# WOAAHHHH!")
+    st.write("## It's a yes? YAYYY! 💗😭")
     st.write("### IT'S A DATE!!! 🥳💗")
