@@ -3,7 +3,7 @@ import streamlit as st
 
 # Starting point
 if "step" not in st.session_state:
-    st.session_state.step = 1
+    st.session_state.step = 19
 
 
 def go_to(step):
