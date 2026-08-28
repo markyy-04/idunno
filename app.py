@@ -1,279 +1,205 @@
+
 import streamlit as st
 
-# Remember the current step
+# Starting point
 if "step" not in st.session_state:
     st.session_state.step = 1
 
 
-st.title("💌 A Little Question")
+def go_to(step):
+    st.session_state.step = step
+    st.rerun()
 
 
-# =========================
-# 1. FIRST QUESTION
-# =========================
+st.title("💌 A Little Question 💌")
 
+
+# 1
 if st.session_state.step == 1:
 
     st.write("## Can I take you on a date? 💗")
 
     if st.button("Yes 💗"):
-        st.session_state.step = 2
-        st.rerun()
+        go_to(2)
 
-    if st.button("No"):
-        st.session_state.step = 3
-        st.rerun()
+    elif st.button("No"):
+        go_to(3)
 
 
-# =========================
-# 2. U SURE?
-# =========================
-
+# 2
 elif st.session_state.step == 2:
 
     st.write("## U sure? 👀")
 
-    if st.button("Yes", key="sure_yes"):
-        st.session_state.step = 4
-        st.rerun()
+    if st.button("Yes"):
+        go_to(4)
 
-    if st.button("No", key="sure_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 3. ARE YOU SURE?
-# =========================
-
+# 3
 elif st.session_state.step == 3:
 
     st.write("## Are you sure? 🥺")
 
-    if st.button("Yes", key="certain_yes"):
-        st.session_state.step = 1
-        st.rerun()
+    if st.button("Yes"):
+        go_to(1)
 
-    if st.button("No", key="certain_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 4. REALLY SURE?
-# =========================
-
+# 4
 elif st.session_state.step == 4:
 
     st.write("## Really sure? 😳")
 
-    if st.button("Yes", key="really_yes"):
-        st.session_state.step = 5
-        st.rerun()
+    if st.button("Yes"):
+        go_to(5)
 
-    if st.button("No", key="really_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 5. SUPER DUPER SURE?
-# =========================
-
+# 5
 elif st.session_state.step == 5:
 
     st.write("## Super duper sure? 🥺")
 
-    if st.button("Yes", key="super_yes"):
-        st.session_state.step = 6
-        st.rerun()
+    if st.button("Yes"):
+        go_to(6)
 
-    if st.button("No", key="super_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 6. PRETTY PLEASE
-# =========================
-
+# 6
 elif st.session_state.step == 6:
 
     st.write("## Aww, pretty please? :<")
 
-    if st.button("Yes", key="please_yes"):
-        st.session_state.step = 7
-        st.rerun()
+    if st.button("Yes"):
+        go_to(7)
 
-    if st.button("No", key="please_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 7. CHANGE YOUR MIND
-# =========================
-
+# 7
 elif st.session_state.step == 7:
 
     st.write("## Can I change your mind? 🥺")
 
-    if st.button("Yes", key="change_yes"):
-        st.session_state.step = 8
-        st.rerun()
+    if st.button("Yes"):
+        go_to(😎
 
-    if st.button("No", key="change_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 8. THE TRICK
-# =========================
-
+# 8
 elif st.session_state.step == 8:
 
     st.write("## What if I do a trick? 👀")
 
-    if st.button("Okay!", key="trick_yes"):
-        st.session_state.step = 9
-        st.rerun()
+    if st.button("Okay!"):
+        go_to(9)
 
-    if st.button("No", key="trick_no"):
-        st.session_state.step = 1
-        st.rerun()
+    elif st.button("No"):
+        go_to(1)
 
 
-# =========================
-# 9. NUMBER TRICK
-# =========================
-
+# 9
 elif st.session_state.step == 9:
 
     st.write("## 🪄 MAGIC TRICK 🪄")
-    st.write("### Think of a number. Done?")
+    st.write("Think of a number. Done?")
 
-    if st.button("Yes!", key="number_done"):
-        st.session_state.step = 10
-        st.rerun()
+    if st.button("Yes!"):
+        go_to(10)
 
 
-# =========================
-# 10. DOUBLE IT
-# =========================
-
+# 10
 elif st.session_state.step == 10:
 
     st.write("## Double it.")
 
-    if st.button("Okay!", key="double"):
-        st.session_state.step = 11
-        st.rerun()
+    if st.button("Okay!"):
+        go_to(11)
 
 
-# =========================
-# 11. ADD 4
-# =========================
-
+# 11
 elif st.session_state.step == 11:
 
     st.write("## Add 4 to that.")
 
-    if st.button("Okay!", key="add_four"):
-        st.session_state.step = 12
-        st.rerun()
+    if st.button("Okay!"):
+        go_to(12)
 
 
-# =========================
-# 12. DIVIDE BY 2
-# =========================
-
+# 12
 elif st.session_state.step == 12:
 
     st.write("## Divide by 2.")
 
-    if st.button("Okay!", key="divide"):
-        st.session_state.step = 13
-        st.rerun()
+    if st.button("Okay!"):
+        go_to(13)
 
 
-# =========================
-# 13. SUBTRACT ORIGINAL
-# =========================
-
+# 13
 elif st.session_state.step == 13:
 
     st.write("## Now subtract your original number.")
 
-    if st.button("Okay!", key="subtract"):
-        st.session_state.step = 14
-        st.rerun()
+    if st.button("Okay!"):
+        go_to(14)
 
 
-# =========================
-# 14. RESULT
-# =========================
-
+# 14
 elif st.session_state.step == 14:
 
     st.write("# IS IT 2?!? HAHAHAHA 😂")
-    st.write("## I KNEW IT! 🪄✨")
+    st.write("I KNEW IT! 🪄✨")
 
-    if st.button("Continue 💗", key="continue_trick"):
-        st.session_state.step = 15
-        st.rerun()
+    if st.button("Continue 💗"):
+        go_to(15)
 
 
-# =========================
-# 15. HARD WAY
-# =========================
-
+# 15
 elif st.session_state.step == 15:
 
     st.write("## So we're gonna do this the hard way then? 😭")
 
-    if st.button("Yes", key="hard_way"):
-        st.session_state.step = 16
-        st.rerun()
+    if st.button("Yes"):
+        go_to(16)
 
 
-# =========================
-# 16. FINAL QUESTION
-# =========================
-
+# 16
 elif st.session_state.step == 16:
 
     st.write("## Will you go out with me? 💗")
 
-    if st.button("YES 💗", key="final_yes1"):
-        st.session_state.step = 17
-        st.rerun()
+    if st.button("YES 💗"):
+        go_to(17)
 
-    if st.button("YESSS 😭", key="final_yes2"):
-        st.session_state.step = 17
-        st.rerun()
+    elif st.button("YESSS 😭"):
+        go_to(17)
 
-    if st.button("YES! 🥹", key="final_yes3"):
-        st.session_state.step = 17
-        st.rerun()
+    elif st.button("YES! 🥹"):
+        go_to(17)
 
-    if st.button("YES PLEASE", key="final_yes4"):
-        st.session_state.step = 17
-        st.rerun()
+    elif st.button("YES PLEASE"):
+        go_to(17)
 
-    if st.button("OF COURSE!", key="final_yes5"):
-        st.session_state.step = 17
-        st.rerun()
+    elif st.button("OF COURSE!"):
+        go_to(17)
 
-    if st.button("Maybe... 👀", key="final_maybe"):
-        st.session_state.step = 18
-        st.rerun()
+    elif st.button("Maybe... 👀"):
+        go_to(18)
 
 
-# =========================
-# 17. YES RESULT
-# =========================
-
+# 17
 elif st.session_state.step == 17:
 
     st.balloons()
@@ -282,10 +208,7 @@ elif st.session_state.step == 17:
     st.write("## IT'S A DATE!!! 🥳💗")
 
 
-# =========================
-# 18. MAYBE
-# =========================
-
+# 18
 elif st.session_state.step == 18:
 
     st.write("# Maybe? 👀")
