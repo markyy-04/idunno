@@ -161,8 +161,10 @@ elif st.session_state.step == 14:
 
     st.write("# IS IT 2?!? HAHAHAHA 😂")
     st.write("I KNEW IT! 🪄✨")
-
-    if st.button("Continue 💗"):
+    st.write("Did I changed your mind? hehe")
+    if st.button("Yes💗"):
+        go_to(1)
+    if st.button("No "):
         go_to(15)
 
 
