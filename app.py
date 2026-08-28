@@ -1,5 +1,4 @@
-
-      import streamlit as st
+import streamlit as st
 
 st.title("💊 PharmaKart")
 st.write("Welcome to Medicare Pharmacy!")
