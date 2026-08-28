@@ -3,7 +3,7 @@ import streamlit as st
 
 # Starting point
 if "step" not in st.session_state:
-    st.session_state.step = 19
+    st.session_state.step = 1
 
 
 def go_to(step):
@@ -23,7 +23,7 @@ if st.session_state.step == 1:
         go_to(19)
 
     elif st.button("No"):
-        go_to(2)
+        go_to(1)
 
 
 # 2
